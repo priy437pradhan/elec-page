@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        text-decoration: none;
+        margin: 0;
+        padding: 0;
+      }
+      
+      h1.ele-heading {
+        margin: 0;
+        position: relative;
+        font-size: 38px;
+        line-height: 50px;
+        text-transform: capitalize;
+        font-weight: 700;
+        color: #000;
+        padding-bottom: 10px;
+      }
+      h1.ele-heading::after {
+        position: absolute;
+        content: "";
+        height: 2px;
+        width: 100%;
+        background-color: #e0d4d4;
+        bottom: 0;
+        left: 0;
+      }
+      p.ele-abt {
+        margin: 0 0 10px 0;
+        padding: 10px 0;
+        position: relative;
+        padding-bottom: 10px;
+        font-size: 14px;
+        line-height: 18px;
+        text-transform: capitalize;
+        color: #333;
+      }
+      p.ele-abt::after {
+        position: absolute;
+        content: "";
+        height: 1px;
+        width: 100%;
+        background-color: #e0d4d4;
+        bottom: 0px;
+        left: 0;
+      }
+
+      .tab {
+        display: flex;
+        margin-bottom: 10px;
+      }
+
+      .select-box {
+        margin: 0 10px 0 0;
+        position: relative;
+        background-color: #7a0506;
+        color: #fff;
+      
+        border-radius: 3px;
+        padding: 10px 14px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgb(188, 187, 187);
+      }
+        
+
+        
+        
+      .select-box h3 {
+        margin: 0;
+        padding: 0;
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+        width: max-content;
+      }
+      .tab-content {
+        margin-bottom: 20px;
+      }
+      .banner-ele {
+        width: 100%;
+        height: auto;
+      }
+      /* candidate-sec */
+      .candidate-sec {
+        height: 400px;
+        max-height: 400px;
+        border: 1.5px solid #e8d2d2;
+        border-radius: 4px;
+        margin-bottom: 10px;
+      }
+
+      .heading-area-filter {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 10px;
+      }
+      .heading-area-filter h2 {
+        margin: 0;
+        padding: 0;
+        text-transform: capitalize;
+        font-size: 26px;
+        font-weight: 700;
+        color: #000;
+        line-height: 28px;
+      }
+      select.area-filter {
+        border: 1px solid rgb(188, 187, 187);
+        background-color: #7a0506;
+        padding: 6px;
+        color: #e0d4d4;
+        font-size: 16px;
+        font-weight: 500;
+        border-radius: 5px;
+        text-transform: uppercase;
+      }
+      select.area-filter:focus {
+        border: none;
+      }
+      select.area-filter option {
+        background-color: #fff;
+        color: #000;
+      }
+      .candidate-details {
+        display: flex;
+        width: 100%;
+        justify-self: space-between;
+        height: 336px;
+      }
+      .candidate-cards {
+        height: 336px;
+        width: 50%;
+        margin-right: 10px;
+        max-height:  336px;
+        overflow-y: scroll;
+      }
+     
+      
+
+      
+      .candidate-single-card {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px 0 0;
+        border-radius: 5px 5px;
+        background-color: #e9edf1;
+        height: 40px;
+        margin: 0 10px 10px 10px;
+        width: 97%;
+      }
+      .candidate-single-card:hover{
+        background-color: #dee3e7;
+      }
+      .candidate-name {
+        width: 70%;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+      }
+      .candidate-name img{
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        margin:0  20px 0 -9px;
+
+      }
+      .candidate-name h3{
+        margin: 0;
+        padding: 0;
+        font-size:16px;
+        line-height: 24px;
+        text-transform: capitalize;
+
+      }
+      .party-name {
+        width: 30%;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+      }
+      .party-name img{
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        margin-right: 20px;
+
+      }
+      .party-name h3{
+        margin: 0;
+        padding: 0;
+        font-size:16px;
+        line-height: 24px;
+        text-transform: uppercase;
+        
+      }
+      .candidate-cards::-webkit-scrollbar {
+        width: 0;
+      }
+      .candidate-cards::-webkit-scrollbar:hover {
+        width: 5px;
+      }
+
+      .card-details {
+        border: 2px solid #eee;
+        max-height: 320px;
+        overflow-y: scroll;
+        border-radius: 5px;
+        width: 48%;
+        margin-right: 10px;
+        padding: 10px;
+      }
+      .card-details h3{
+        margin: 0;
+        padding: 0;
+        font-size:20px;
+        line-height: 28px;
+        font-weight: 500;
+        text-transform: capitalize;
+        
+      }
+      .card-details p {
+    margin: 0;
+    font-size: 16px;
+    color: #000;
+    line-height: 22px;
+    padding: 0;
+}
+      .card-details::-webkit-scrollbar {
+        width: 5px;
+      }
+
+      .card-details::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      .card-details::-webkit-scrollbar-thumb {
+        background: #888;
+      }
+
+      .card-details::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+      /* candidate-sec */
+      @media (max-width: 768px) {
+        h1.ele-heading {
+    font-size: 28px;
+    line-height: 32px;
+}
+.heading-area-filter {
+    display: flex;
+    justify-content:unset;
+    align-items: center;
+    margin: 10px;
+}
+        .heading-area-filter {
+       width: 100%;
+      }
+      
+      
+        .heading-area-filter h2 {
+    margin: 0;
+    padding: 0;
+    text-transform: capitalize;
+    font-size: 22px;
+    font-weight: 500;
+    color: #000;
+    line-height: 26px;
+    width: 55%; 
+}
+.heading-area-filter {
+    align-items: flex-start;
+}
+.candidate-details {
+    display: grid;
+}
+.candidate-sec {
+    height: auto;
+    max-height: none;
+    border: 1.5px solid #e8d2d2;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+.candidate-cards {
+    height: 194px;
+    width: 100%;
+    margin-right: 10px;
+    max-height: none;
+    overflow-y: scroll;
+}
+.card-details {
+    border: 2px solid #eee;
+    max-height: auto;
+    overflow-y: scroll;
+    border-radius: 5px;
+    width: 100%;
+    margin-right: 10px;
+    padding: 10px;
+}
+
+
+select.area-filter {
+    width: 40%;
+    font-size: 15px;
+
+}
+.candidate-name img {
+    
+    margin: 0 10px 0 -9px;
+}
+.party-name img {
+    
+    margin: 0 10px 0 0;
+}
+}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9">
+          <h1 class="ele-heading">vidhan sabha election</h1>
+          <p class="ele-abt">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
+            cumque dolorum laborum atque corporis facilis veniam blanditiis
+            aperiam tempora natus? Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Quos impedit sit nam accusamus pariatur eveniet
+            quaerat laboriosam et voluptatibus quidem!
+          </p>
+          <div class="tab">
+            <div class="select-box active">
+              <h3>odisha vidhan sabha</h3>
+            </div>
+           
+          </div>
+          <div class="tab-content">
+            <div id="tab1" class="tab-pane fade show active">
+              <img src="images/banner2.png" alt="" class="banner-ele" />
+            </div>
+            
+          </div>
+          <div class="candidate-sec">
+            <div class="heading-area-filter">
+              <h2>nimapada MLA candidate</h2>
+              <select name="level" id="level" class="area-filter">
+                <option value="beginner">nimapada</option>
+                <option value="intermediate">cuttack barabati</option>
+                <option value="advanced">gop</option>
+              </select>
+            </div>
+            <div class="candidate-details">
+              <div class="candidate-cards">
+                <div class="candidate-single-card">
+                  <div class="candidate-name">
+                    <img src="images/candidate-one.jpg" alt="" />
+                    <h3>gopal prasad pradhan</h3>
+                  </div>
+                  <div class="party-name">
+                    <img src="images/bjp.jpg" alt="" />
+                    
+                    <h3>bjp</h3>
+                  </div>
+                </div>
+                <div class="candidate-single-card">
+                  <div class="candidate-name">
+                    <img src="images/default.jpg" alt="" />
+                    <h3>gopal prasad pradhan</h3>
+                  </div>
+                  <div class="party-name">
+                    <img src="images/congress.jpg" alt="" />
+                  
+                    <h3>inc</h3>
+                  </div>
+                </div>
+                
+                <div class="candidate-single-card">
+                  <div class="candidate-name">
+                    <img src="images/default.jpg" alt="" />
+                    
+                    <h3>gopal prasad pradhan</h3>
+                  </div>
+                  <div class="party-name">
+                    <img src="images/bjd.jpg" alt="" />
+                    <h3>bjd</h3>
+                  </div>
+                </div>
+                <div class="candidate-single-card">
+                  <div class="candidate-name">
+                    <img src="images/candidate-one.jpg" alt="" />
+                    <h3>gopal prasad pradhan</h3>
+                  </div>
+                  <div class="party-name">
+                    <img src="images/bjd.jpg" alt="" />
+                    <h3>bjp</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="card-details">
+                <h3>lorem</h3>
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non
+                  incidunt quam dolor eum mollitia itaque autem repellendus
+                  repudiandae rem saepe molestiae similique velit, maxime
+                  deleniti suscipit nihil, excepturi rerum quis.Lorem ipsum
+                  dolor sit amet consectetur adipisicing elit. Ducimus cumque
+                  dolorum laborum atque corporis facilis veniam blanditiis
+                  aperiam tempora natus? Lorem ipsum dolor sit amet consectetur
+                  adipisicing elit. Quos impedit sit nam accusamus pariatur
+                  eveniet quaerat laboriosam et voluptatibus quidem!Lorem, ipsum
+                  dolor sit amet consectetur adipisicing elit. Non incidunt quam
+                  dolor eum mollitia itaque autem repellendus repudiandae rem
+                  saepe molestiae similique velit, maxime deleniti suscipit
+                  nihil, excepturi rerum quis.Lorem ipsum dolor sit amet
+                  consectetur adipisicing elit. Ducimus cumque dolorum laborum
+                  atque corporis facilis veniam blanditiis aperiam tempora
+                  natus? Lorem ipsum dolor sit amet consectetur adipisicing
+                  elit. Quos impedit sit nam accusamus pariatur eveniet quaerat
+                  laboriosam et voluptatibus quidem!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3"></div>
+      </div>
+    </div>
+  </body>
+ 
+</html>
